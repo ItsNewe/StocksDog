@@ -1,30 +1,18 @@
 <script>
-	export let name;
+	import Chart from './Chart.svelte';
+	//import StocksData from './StocksData.svelte';
+	import { stocksList } from './stores.js';
+	let stocksWatchList= new Array();
+
+	stocksList.subscribe(v => { stocksWatchList=v});
+
+	stocksList.set(["TSLA", "MSFT"]);
+
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	
+	{#each stocksWatchList as stock, idx}
+		<Chart chartId={idx} stockName={stock}/>
+	{/each}
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
