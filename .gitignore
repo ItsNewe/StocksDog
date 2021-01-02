@@ -1,5 +1,6 @@
 public/build/
-
+bundle.*
+launch.json
 # Logs
 logs
 *.log
