@@ -280,7 +280,8 @@
 
 <style>
 	div {
-		width: 100%;
+		display: flex;
+		width: 45%;
 	}
 </style>
 
