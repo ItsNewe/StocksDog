@@ -34,14 +34,6 @@
 		promise = getStockData();
 	}
 </script>
-
-<style>
-	@tailwind base;
-	form {
-		display: flex;
-	}
-</style>
-
 <main>
 	<form class="searchBox" on:submit|preventDefault={stockFormSubmit}>
 		<input bind:value={searchBoxText} />
@@ -49,10 +41,16 @@
 	</form>
 
 	{#await promise}
-		<p>Waiting</p>
 	{:then r}
 		<p>{r}</p>
 	{:catch err}
 		<p>Ouch: {err}</p>
 	{/await}
 </main>
+<style>
+	main{
+		display:inline-block;
+		box-sizing: content-box;
+		margin:auto;
+	}
+</style>

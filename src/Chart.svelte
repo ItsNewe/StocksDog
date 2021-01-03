@@ -71,13 +71,6 @@
 	});
 </script>
 
-<style>
-	div {
-		display: flex;
-		width: 45%;
-	}
-</style>
-
 <main>
 	{#if !liveData}
 		<p>LOADING...</p>

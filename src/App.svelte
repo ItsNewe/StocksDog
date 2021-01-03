@@ -8,7 +8,7 @@
 
 	stocksList.subscribe(v => { stocksWatchList=v});
 
-	stocksList.set(["TSLA", "MSFT"]);
+	stocksList.set(["TSLA", "MSFT", "GOOGL"]);
 
 	function handleCreateChartMessage(event){
 		console.log(`ev ${event.detail}`);
@@ -18,9 +18,34 @@
 </script>
 
 <main>
+	<header>
+	<img src="/favicon.png" alt="StocksDog logo" width=100px>
 	<SearchBox on:createChart={handleCreateChartMessage}></SearchBox>
+</header>
+	<div id="chartsContainer">
 	{#each stocksWatchList as stock, idx}
-	<p>{stock}</p>
+	<div class="chartClass">
+		<p>{stock}</p>
 		<Chart chartId={idx} stockName={stock}/>
+	</div>
 	{/each}
+	</div>
 </main>
+
+<style>
+	main{
+		display:inline-block;
+	}
+	header{
+		display:inline;
+	}
+	#chartsContainer{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-evenly;
+		width:100vw;
+	}
+	.chartClass{
+		flex-basis: 45vw;
+	}
+</style>
