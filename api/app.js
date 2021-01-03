@@ -11,7 +11,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/candle', async (req, res) => {
+app.get('/api/candle', async (req, res) => {
 	await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=${req.query.symbol}&resolution=M&from=${Math.floor((Date.now()/1000)-(3600*156))}&to=${Math.floor(Date.now()/1000)}&token=${process.env.FINNHUB_TOKEN_SB}`)
 			.then((r) => {
 				r.json().then((data) => {

@@ -8,7 +8,7 @@
 	let liveData = [];
 
 	async function refreshData() {
-		await fetch(`http://localhost:3357/candle?symbol=${stockName}`)
+		await fetch(`http://stocksdog.fangsystems.tech/api/candle?symbol=${stockName}`)
 			.then((r) => {
 				r.json().then((data) => {
 					liveData=data
