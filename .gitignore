@@ -1,6 +1,6 @@
 #Custom
 
-/public/build
+/public/build/
 bundle.*
 .vscode/
 tokens.js
