@@ -1,6 +1,7 @@
 public/build/
 bundle.*
 launch.json
+tokens.js
 # Logs
 logs
 *.log
