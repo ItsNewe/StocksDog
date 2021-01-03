@@ -9,24 +9,10 @@
 	let liveData = [];
 
 	async function refreshData() {
-		await fetch(`https://finnhub.io/api/v1/stock/candle?symbol=${stockName}&resolution=M&from=${Math.floor((Date.now()/1000)-(3600*156))}&to=${Math.floor(Date.now()/1000)}&token=${finnhubSb}`)
+		await fetch(`http://localhost:3357/candle?symbol=${stockName}`)
 			.then((r) => {
 				r.json().then((data) => {
-					//This is horrible iteration and i'm ashamed of it
-					let dataBuffer=[];
-					
-					for(const[idx, v] of data["c"].entries()){
-						dataBuffer.push({
-							'x':new Date(Date.UTC('2020','01','01'+idx,'23','31','30')),
-							'y':[
-							data["o"][idx],
-							data["h"][idx],
-							data["l"][idx],
-							data["c"][idx]]
-						}
-						);
-					};
-					liveData=dataBuffer;
+					liveData=Data
 				});
 			})
 			.catch("error upon data retrieval");
@@ -67,7 +53,7 @@
 	var chart = new ApexCharts(canvas, options);
 	chart.render();
 	
-	setInterval(()=>{console.log(liveData); chart.updateSeries([{data:liveData}])}, 8000);
+	setInterval(()=>chart.updateSeries([{data:liveData}]), 8000);
 	});
 </script>
 

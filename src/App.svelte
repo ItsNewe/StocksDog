@@ -38,14 +38,15 @@
 	}
 	header{
 		display:inline;
+		margin:auto;
 	}
 	#chartsContainer{
 		display: flex;
 		flex-flow: row wrap;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		width:100vw;
 	}
 	.chartClass{
-		flex-basis: 45vw;
+		flex-basis: 49vw;
 	}
 </style>
