@@ -12,7 +12,7 @@
 		await fetch(`http://localhost:3357/candle?symbol=${stockName}`)
 			.then((r) => {
 				r.json().then((data) => {
-					liveData=Data
+					liveData=data
 				});
 			})
 			.catch("error upon data retrieval");
