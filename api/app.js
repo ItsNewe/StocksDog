@@ -32,10 +32,11 @@ app.get('/api/candle', async (req, res) => {
 				} catch {
 					dataBuffer=data;
 				}
-					res.send(dataBuffer);
+
+				return res.status(200).json(dataBuffer);
 				});
 			})
-			.catch(res.send({"s": "BACKEND ERROR"}));
+			.catch(() => {return res.status(500).json({"s": "BACKEND ERROR"})});
 	});
 
 app.listen(3357, () => {
