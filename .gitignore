@@ -1,7 +1,10 @@
-public/build/
+#Custom
+
+/public/build
 bundle.*
-launch.json
+.vscode/
 tokens.js
+
 # Logs
 logs
 *.log
