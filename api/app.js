@@ -17,6 +17,7 @@ app.get('/candle', async (req, res) => {
 				r.json().then((data) => {
 					//This is horrible iteration and i'm ashamed of it
 					let dataBuffer=[];
+					try{
 					for(const[idx, v] of data["c"].entries()){
 						dataBuffer.push({
 							'x':new Date(Date.UTC('2020','01','01'+idx,'23','31','30')),
@@ -28,10 +29,13 @@ app.get('/candle', async (req, res) => {
 						}
 						);
 					};
+				} catch {
+					dataBuffer=data;
+				}
 					res.send(dataBuffer);
 				});
 			})
-			.catch("error upon data retrieval");
+			.catch(res.send({"s": "BACKEND ERROR"}));
 	});
 
 app.listen(3357, () => {

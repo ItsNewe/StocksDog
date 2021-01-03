@@ -1,7 +1,6 @@
 <script>
 	import ApexCharts from "apexcharts";
 	import { onMount } from "svelte";
-	import {finnhubSb} from './tokens.js'
 	export let chartId;
 	export let stockName;
 	let canvas;
